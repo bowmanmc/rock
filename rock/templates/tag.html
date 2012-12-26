@@ -1,0 +1,41 @@
+
+{% extends 'base.html' %}
+
+{% block page_title %}
+  Rock and Roll Ain't Noise Pollution
+{% endblock %}
+
+{% block page_content %}
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span12 search_headline">
+      <h1>Rock to: {{tag_name}} [<span id="entry_count"></span>]</h1>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span6">
+      <div id="left_col" class="rock_col left_col"></div>
+    </div>
+    <div class="span6">
+      <div id="right_col" class="rock_col"></div>
+    </div>
+  </div>
+</div>
+
+<div class="hidden" id="tag_name">{{tag_name}}</div>
+{% endblock %}
+
+{% block page_scripts %}
+<script type="text/javascript"
+    src="/rock/static/javascript/RockOutList.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        var list = new RockOutList();
+        list.loadTagPage();
+    });
+</script>
+{% endblock %}

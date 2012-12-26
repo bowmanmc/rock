@@ -1,0 +1,43 @@
+
+{% extends 'base.html' %}
+
+{% block page_title %}
+Rock ‘N Roll Train
+{% endblock %}
+
+{% block page_content %}
+<div class="container-fluid" id="rock_content_ctr">
+  <div class="row-fluid browse_row">
+    <div class="span2 browse_col">
+        <img id="tags_spinner" class="hidden" 
+            src="/rock/static/images/spinner.gif" />
+        <ul id="tags" class="browse_list">
+        </ul>
+    </div>
+    <div class="span2 browse_col">
+        <img id="records_spinner" class="hidden" 
+            src="/rock/static/images/spinner.gif" />
+        <ul id="records" class="browse_list">
+        </ul>
+    </div>
+    <div class="span8 content_col">
+        <img id="content_spinner" class="hidden"
+            src="/rock/static/images/spinner.gif" />
+        <div id="record_content"></div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
+
+{% block page_scripts %}
+<script type="text/javascript"
+    src="/rock/static/javascript/RecordBin.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var bin = new RecordBin();
+    bin.init();
+  });
+</script>
+{% endblock %}

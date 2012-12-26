@@ -1,0 +1,70 @@
+
+{% extends 'base.html' %}
+
+{% block page_title %}
+{{ entry.title }}
+{% endblock %}
+
+
+{% block page_content %}
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span8">
+      <div class="detail_content">
+<!-- Entry -->
+<h1>{{ entry.title }}</h1>
+
+<div id="entry_content">
+{{ entry.content|safe}}
+</div>
+
+      </div><!-- detail_content -->
+    </div><!-- span9 -->
+
+    <div class="span4">
+
+<!-- Sidebar -->
+<div class="detail_sidebar">
+  <dl>
+    <dt>Author </dt>
+    <dd>{{entry.author}}</dd>
+
+    <dt>Date Created </dt>
+    <dd>{{entry.date_created}}</dd>
+
+    <dt>Last Updated </dt>
+    <dd>{{entry.last_updated}}</dd> 
+
+    <dt>Tags</dt>
+    <dd><ul class="detail_tags">
+    {% for tag in entry.tags %}
+        <li><a href="/rock/tag/{{tag}}">{{tag}}</a></li>
+    {% endfor %}
+    </ul></dd>
+  </dl>
+  <div class="detail_edit_link">
+    <a href="/rock/edit/{{entry.id}}">Edit</a>
+  </div>
+</div>
+
+    </div><!-- span3 -->
+  </div> <!-- row -->
+</div> <!-- container -->
+
+
+{% endblock %}
+
+{% block page_scripts %}
+<script type="text/javascript">
+  $(document).ready(function() {
+      htmlDecode = function(input) {
+          var e = document.createElement('div');
+          e.innerHTML = input;
+          return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+      }
+      var contentEl = $('#entry_content');
+      var out = htmlDecode(contentEl.html());
+      contentEl.html(out);
+  });
+</script>
+{% endblock %}

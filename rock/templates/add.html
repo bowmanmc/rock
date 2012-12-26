@@ -1,0 +1,96 @@
+
+{% extends 'base.html' %}
+
+{% block page_title %}
+  For Those About to Rock... We Salute You!
+{% endblock %}
+
+{% block page_head %}
+<link rel="stylesheet" type="text/css" 
+    href="/rock/static/jquery/css/smoothness/jquery-ui-1.9.1.custom.min.css" />
+<link rel="stylesheet" type="text/css" 
+    href="/rock/static/jquery/tagit/css/jquery.tagit.css" />
+{% endblock %}
+
+{% block page_content %}
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div id="update_msg" class="update_ctr"></div>
+          <div id="error_msg" class="error_ctr">
+            Please enter a title for your rock anthem
+          </div>
+        </div>
+        <div class="span6">
+
+<h2>There's Gonna Be Some Rockin</h2>
+<!-- Add Form Start -->
+<form class="form-horizontal" id="addRockEntryForm">
+    <div class="control-group">
+        <label class="control-label" 
+            for="inputTitle">Title</label>
+        <div class="controls">
+            <input type="text"
+                class="input-block-level"
+                id="inputTitle"
+                placeholder="lights" />
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label"
+            for="inputAuthor">Author</label>
+        <div class="controls">
+            <input type="text"
+                class="input-block-level"
+                id="inputAuthor"
+                placeholder="drums" />
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label"
+            for="inputTag">Tags</label>
+        <div class="controls">
+            <input type="hidden"
+                class="input-block-level"
+                id="inputTags" />
+            <ul id="tags">
+            </ul>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" 
+            for="inputContent">Content</label>
+        <div class="controls">
+            <textarea id="inputContent" 
+                class="input-block-level"
+                rows="8"
+                placeholder="guitar"></textarea>
+        </div>
+    </div>
+    <input id="rockSubmit" type="submit" 
+        class="btn btn-primary btn-large pull-right" 
+        value="Let There Be Rock!"/>
+</form>
+<!-- Add Form End -->
+        </div><!-- span6 -->
+        <div class="span3">
+          &nbsp;
+        </div>
+      </div><!-- row -->
+    </div><!-- container -->
+
+{% endblock %}
+
+{% block page_scripts %}
+<script type="text/javascript"
+    src="/rock/static/jquery/jquery-ui-1.9.1.custom.min.js"></script>
+<script type="text/javascript"
+    src="/rock/static/jquery/tagit/js/tag-it.min.js"></script>
+<script type="text/javascript"
+    src="/rock/static/javascript/RockOutForm.js"></script>
+
+<script type="text/javascript">
+    var form = new RockOutForm();
+    form.setupCreate();
+</script>
+{% endblock %}

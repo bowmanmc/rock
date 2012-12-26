@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>
+      {% block page_title %}
+        Let There Be Rock!
+      {% endblock %}
+    </title>
+
+    {% block page_head %}
+    {% endblock %}
+
+    <link rel="stylesheet" media="screen" 
+        href="/rock/static/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" media="screen"
+        href="/rock/static/styles/main.css" />
+    
+  </head>
+
+  <body>
+    
+    <div class="class_banner" id="rock_class_ctr">UNCLASSIFIED</div>
+
+    <!-- Main navbar container -->
+    <div class="container-fluid" id="rock_nav_ctr">
+      <div class="row-fluid rock_nav_banner">
+        <div class="span12">
+        <!-- Navbar content goes in here -->
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span4 nav_btn_ctr">
+      <a href="/rock"><img src="/rock/static/images/mouse-rock.png" 
+        title="rock" /></a>
+    </div>
+    <div class="span4">&nbsp;</div>
+    <div class="span4 nav_btn_ctr add_btn_ctr">
+      
+      <div class="rock_btn float_right">
+        <a href="/rock/add"><img 
+          src="/rock/static/images/add-btn.png" 
+          title="Add Entry" /></a>
+      </div>
+
+      <div class="rock_btn float_right">
+        <a href="/rock/browse"><img 
+          src="/rock/static/images/browse-btn.png"
+          title="Browse" /></a>
+      </div>
+
+      <div class="clear"></div>
+    </div>
+  </div>
+</div>
+        <!-- Navbar content end -->      
+        </div><!-- span12 -->
+      </div>
+    </div>
+    <!-- Main navbar container end -->
+
+
+    {% block page_content %}
+    {% endblock %}
+
+
+    <script type="text/javascript"
+        src="/rock/static/jquery/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript"
+        src="/rock/static/jquery/jquery.tmpl.min.js"></script>
+    <script type="text/javascript"
+        src="/rock/static/bootstrap/js/bootstrap.min.js"></script>
+    
+    {% block page_scripts %}
+    {% endblock %}
+
+  </body>
+
+</html>
